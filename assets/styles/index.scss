@@ -1,2 +1,45 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
+
+div {
+  border: 1px solid #000;
+}
+
+.container {
+  float: left;
+  width: 50%;
+  margin: auto 25%;
+}
+
+.container>div {
+  @include make-row();
+  div {
+    @include make-lg-column(4);
+    @include make-md-column(4);
+    @include make-sm-column(4);
+    @include make-xs-column(4);
+    border: 1px solid #000;
+    height: 16.666vw;
+  }
+ }
+​
+// @media (max-width: 992px) {
+//   .container {
+//     width: 90%;
+//     margin: auto 5%;
+//     & section {
+//       height: 30vw;
+//     }
+//   }
+// }
+
+
+#player-score {
+  float: right;
+}
+
+
+.row {
+  clear: both;
+  margin: 50px;
+}

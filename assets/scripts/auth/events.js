@@ -13,10 +13,10 @@ const onSignUp = function (event) {
   .fail(ui.failure);
 };
 
-const onSignIn = function (event) {
+const onLogIn = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
-  api.signIn(data)
+  api.logIn(data)
   .done(ui.signInSuccess)
   .fail(ui.failure);
 };
@@ -36,19 +36,46 @@ const onChangePassword = function (event) {
   .fail(ui.failure);
 };
 
+let random = true;
+const setMove = function () {
+  let move = '';
+  if(random) {
+      move = 'x';
+      random = false;
+      return move;
+  }else {
+    move = 'o';
+    random = true;
+    return move;
+  }
+}
+
+const showMove = function () {
+  $(this).text(setMove);
+}
+
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
-  $('#sign-in').on('submit', onSignIn);
+  $('#log-in').on('submit', onLogIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
+  $('#column1').on('click', showMove);
+  $('#column2').on('click', showMove);
+  $('#column3').on('click', showMove);
+  $('#column4').on('click', showMove);
+  $('#column5').on('click', showMove);
+  $('#column6').on('click', showMove);
+  $('#column7').on('click', showMove);
+  $('#column8').on('click', showMove);
+  $('#column9').on('click', showMove);
 };
 
+const setArr = function () {
+  
+  $('#column1').val();
+}
 
-// function (event) {
-//   let data = getFormFields(this);
-//   event.preventDefault();
-//   authApi.signUp(authUi.success, authUi.failure, data);
-// });
 module.exports = {
   addHandlers,
 };

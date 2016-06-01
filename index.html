@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic-Tac-Toe</title>
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
@@ -9,7 +9,7 @@
     <body class="container-fluid">
       <form id="sign-up">
         <fieldset>
-          <legend>Sign up!</legend>
+          <legend>sign up!</legend>
           <input type="text" name="credentials[email]" placeholder="email">
           <input type="password" name="credentials[password]" placeholder="password">
           <input type="password" name="credentials[password_conformation]" placeholder="password conformation">
@@ -17,14 +17,15 @@
         </fieldset>
       </form>
 
-      <form id="sign-in">
+      <form id="log-in">
         <fieldset>
-          <legend>Sign in!</legend>
+          <legend>Log-in!</legend>
           <input type="text" name="credentials[email]" placeholder="email">
           <input type="password" name="credentials[password]" placeholder="password">
-          <input type="submit" name="submit" value="Sign in!">
+          <input type="submit" name="submit" value="Log in!">
         </fieldset>
       </form>
+
 
       <form id="sign-out">
         <fieldset>
@@ -41,14 +42,48 @@
             <input type="submit" name="submit" value="Change Password">
         </fieldset>
       </form>
-      <h1>Example</h1>
+      <h1>Tic-Tac-Toe</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <div class="container">
+        <div>
+          <div id="column1"></div>
+          <div id="column2"></div>
+          <div id="column3"></div>
+        </div>
+        <div>
+          <div id="column4"></div>
+          <div id="column5"></div>
+          <div id="column6"></div>
+        </div>
+        <div>
+          <div id="column7"></div>
+          <div id="column8"></div>
+          <div id="column9"></div>
+        </div>
+      </div>
+
+      <div id="player-score">
+        <form>
+        <input type="text">
+        <input type="submit" value="player1">
+        </form>
+        <form>
+        <input type="text">
+        <input type="submit" value="player2">
+        </form>
+        <form>
+        <input type="text">
+        <input type="submit" value="tie">
+        </form>
+      </div>
+
+     <div class="row">
+          <button class="btn" data-toggle="collapse" data-target="#viewdetails">Help</button>
+          <p class="collapse" id="viewdetails">
+            This is a game rule
+          </p>
+    </div>
+
+
     </body>
 </html>

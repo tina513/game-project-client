@@ -4,15 +4,15 @@ const app = require('./app');
 
 const signUp = (data) => {
   return $.ajax ({
-    url: app.host + '/sign-up/',
+    url: app.host + '/sign-up',
     method: 'POST',
     data: data,
   });
 };
 
-const signIn = (data) => {
+const logIn = (data) => {
   return $.ajax ({
-    url: app.host + '/sign-in/',
+    url: app.host + '/sign-in',
     method: 'POST',
     data: data,
   });
@@ -43,7 +43,7 @@ const changePassword = (data) => {
 
 module.exports = {
   signUp,
-  signIn,
+  logIn,
   signOut,
   changePassword,
 };
