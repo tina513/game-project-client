@@ -26,7 +26,6 @@
         </fieldset>
       </form>
 
-
       <form id="sign-out">
         <fieldset>
           <legend>Sign out!</legend>
@@ -42,9 +41,10 @@
             <input type="submit" name="submit" value="Change Password">
         </fieldset>
       </form>
+
       <h1>Tic-Tac-Toe</h1>
 
-      <div class="container">
+      <div class="container game-board">
         <div>
           <div id="column1"></div>
           <div id="column2"></div>
@@ -62,28 +62,35 @@
         </div>
       </div>
 
-      <div id="player-score">
-        <form>
-        <input type="text">
-        <input type="submit" value="player1">
-        </form>
-        <form>
-        <input type="text">
-        <input type="submit" value="player2">
-        </form>
-        <form>
-        <input type="text">
-        <input type="submit" value="tie">
-        </form>
-      </div>
+      <table id="player-score">
+        <tr>
+          <td><input type="text" size="5" id="Player_x-score"></td>
+          <td>Player_x</td>
+        </tr>
+        <tr>
+          <td><input type="text" size="5" id="Player_o-score"></td>
+          <td>Player_o</td>
+        </tr>
+        <tr>
+          <td><input type="text" size="5" id="tie-score"></td>
+          <td>tie</td>
+        </tr>
+      </table>
 
-     <div class="row">
-          <button class="btn" data-toggle="collapse" data-target="#viewdetails">Help</button>
-          <p class="collapse" id="viewdetails">
-            This is a game rule
-          </p>
-    </div>
+      <button id="play-game">Play</button>
 
+      <form action="#"  id="get-game">
+        <input type="text" name="game[id]" id="game-id" placeholder="type game id">
+        <input type="submit" value="Get Game">
+      </form>
 
+      <div id="Player_x-message" style="display:none">Player_x Win!</div>
+      <div id="Player_o-message" style="display:none">Player_o Win!</div>
+      <div id="tie-message" style="display:none">Tie!</div>
+
+      <button class="btn" data-toggle="collapse" data-target="#viewdetails">Help</button>
+      <p class="collapse" id="viewdetails">
+        Tic-tac-toe is a paper-and-pencil game for two players, X and O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game
+      </p>
     </body>
 </html>

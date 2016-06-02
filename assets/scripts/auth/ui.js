@@ -2,6 +2,8 @@
 
 const app = require('./app.js');
 
+let gameId = 0;
+
 const success = (data) => {
   console.log(data);
 };
@@ -20,10 +22,29 @@ const signOutSuccess = function () {
   console.log(app);
 };
 
+const createGameSuccess = function (data) {
+  gameId = data.game.id;
+  console.log(data);
+};
+
+const getGameSuccess = function (data) {
+  if (data.games) {
+    console.table(data.games);
+  }else {
+    console.log(data.game);
+  }
+};
+
+const returnGameId = function () {
+  return gameId;
+};
 
 module.exports = {
   failure,
   success,
   signInSuccess,
   signOutSuccess,
+  createGameSuccess,
+  getGameSuccess,
+  returnGameId,
 };

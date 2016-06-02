@@ -1,6 +1,8 @@
 'use strict';
 
 const app = require('./app');
+const ui = require('./ui');
+
 
 const signUp = (data) => {
   return $.ajax ({
@@ -39,11 +41,63 @@ const changePassword = (data) => {
   });
 };
 
-//Math.random() > 0.5 ? success('in signUp') : failure(data);
+const createGame = () => {
+  return $.ajax ({
+    url: app.host + '/games',
+    method: 'POST',
+    data: {},
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
+const getGameApi = (id) => {
+  if (id === '') {
+    return $.ajax ({
+      url: app.host + `/games`,
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+    });
+  }else {
+    return $.ajax ({
+      url: app.host + `/games/`+id,
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+    });
+  }
+};
+
+const updateGameStatus = (gameIndex, gameValue, gameStatus) => {
+  return $.ajax ({
+    url: app.host + `/games/`+ ui.returnGameId(),
+    method: 'PATCH',
+    data: {
+        "game": {
+          "cell": {
+            "index": gameIndex,
+            "value": gameValue,
+          },
+          "over": gameStatus
+        }
+      },
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
 
 module.exports = {
   signUp,
   logIn,
   signOut,
   changePassword,
+  createGame,
+  getGameApi,
+  updateGameStatus,
 };
