@@ -1,6 +1,14 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
 
+.jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  background-color: #E5E4E2;
+}
+
+
 div {
   border: 1px solid #000;
 }
@@ -8,7 +16,7 @@ div {
 .container {
   float: left;
   width: 50%;
-  margin: auto 25%;
+  margin: auto 10%;
 }
 
 .container>div {
@@ -34,13 +42,25 @@ div {
 // }
 
 
+
+
 #player-score {
   float: right;
   margin: auto;
 }
 
+#play-game {
+  float: right;
+}
 
-.row {
+#Player_x-message {
   clear: both;
-  margin: 50px;
+}
+
+#Player_o-message {
+  clear: both;
+}
+
+#tie-message {
+  clear: both;
 }

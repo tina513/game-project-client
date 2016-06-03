@@ -103,8 +103,8 @@ const getGame = function (event) {
   api.getGameApi(id)
   .done(ui.getGameSuccess)
   .fail(ui.failure);
+  
 };
-
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
