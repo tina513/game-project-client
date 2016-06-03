@@ -12,6 +12,19 @@ const signUp = (data) => {
   });
 };
 
+const signIn = (email, password) => {
+  return $.ajax ({
+    url: app.host + '/sign-in',
+    method: 'POST',
+    data: {
+      "credentials": {
+          "email": email,
+          "password": password,
+        }
+      },
+  });
+};
+
 const logIn = (data) => {
   return $.ajax ({
     url: app.host + '/sign-in',
@@ -52,8 +65,8 @@ const createGame = () => {
   });
 };
 
-const getGameApi = (id) => {
-  if (id === '') {
+const getGameApi = () => {
+  // if (id === '') {
     return $.ajax ({
       url: app.host + `/games`,
       method: 'GET',
@@ -61,15 +74,15 @@ const getGameApi = (id) => {
         Authorization: 'Token token=' + app.user.token,
       },
     });
-  }else {
-    return $.ajax ({
-      url: app.host + `/games/`+id,
-      method: 'GET',
-      headers: {
-        Authorization: 'Token token=' + app.user.token,
-      },
-    });
-  }
+  // }else {
+  //   return $.ajax ({
+  //     url: app.host + `/games/`+id,
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: 'Token token=' + app.user.token,
+  //     },
+  //   });
+  // }
 };
 
 const updateGameStatus = (gameIndex, gameValue, gameStatus) => {
@@ -94,6 +107,7 @@ const updateGameStatus = (gameIndex, gameValue, gameStatus) => {
 
 module.exports = {
   signUp,
+  signIn,
   logIn,
   signOut,
   changePassword,

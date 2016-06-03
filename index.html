@@ -62,6 +62,13 @@
         </div>
       </div>
 
+      <form action="#"  id="get-game" style="display:block">
+        <!-- <input type="text" name="game[id]" id="game-id" placeholder="type game id"> -->
+        <input type="submit" value="Get Game">
+      </form>
+
+      <button id="start-game" style="display:block">Start a New Game</button>
+
       <table id="player-score">
         <tr>
           <td><input type="text" size="5" id="Player_x-score"></td>
@@ -77,12 +84,7 @@
         </tr>
       </table>
 
-      <button id="play-game">Play</button>
-
-      <form action="#"  id="get-game">
-        <input type="text" name="game[id]" id="game-id" placeholder="type game id">
-        <input type="submit" value="Get Game">
-      </form>
+      <button id="play-game">Play again</button>
 
       <div id="Player_x-message" style="display:none">Player_x Win!</div>
       <div id="Player_o-message" style="display:none">Player_o Win!</div>
