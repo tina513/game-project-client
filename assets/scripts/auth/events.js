@@ -4,11 +4,11 @@ const getFormFields = require('../../../lib/get-form-fields');
 
 const api = require('./api');
 const ui = require('./ui');
-const small_func = require('./smfunction');
+const smallFunc = require('./smfunction');
 
-let setMoveFunc = small_func.setMove;
-let checkWin = small_func.check;
-let notEmpty = small_func.notEmptyElement;
+let setMoveFunc = smallFunc.setMove;
+let checkWin = smallFunc.check;
+let notEmpty = smallFunc.notEmptyElement;
 
 const onSignUp = function (event) {
   event.preventDefault();
@@ -19,7 +19,7 @@ const onSignUp = function (event) {
   // api.signIn(data.credentials.email, data.credentials.password)
   //   .done(ui.signInSuccess)
   //   .fail(ui.failure)
- $('.game-board').unbind("click");
+ $('.game-board').unbind('click');
 };
 
 const onLogIn = function (event) {
@@ -28,7 +28,7 @@ const onLogIn = function (event) {
   api.logIn(data)
   .done(ui.signInSuccess)
   .fail(ui.failure);
-  $('.game-board').unbind("click");
+  $('.game-board').unbind('click');
 };
 
 const onSignOut = function (event) {
@@ -37,7 +37,7 @@ const onSignOut = function (event) {
     .done(ui.signOutSuccess)
     .fail(ui.failure);
   for (let i = 1; i < 10; i++) {
-    $('#column'+i).text("");
+    $('#column'+i).text('');
   }
   document.getElementById('Player_x-message').style.display = 'none';
   document.getElementById('Player_o-message').style.display = 'none';
@@ -46,7 +46,7 @@ const onSignOut = function (event) {
   document.getElementById('get-game').style.display = 'block';
   document.getElementById('start-game').style.display = 'block';
   for (let i = 1; i < 10; i++) {
-    $('#column'+i).text("");
+    $('#column' + i).text("");
   }
   $('#Player_x-score').val('');
   $('#Player_o-score').val('');
@@ -62,14 +62,14 @@ const onChangePassword = function (event) {
   $('.game-board').unbind("click");
 };
 
-let arr = ['','','','','','','','',''];
-let Player_x_count = $('#Player_x-score').val();
-let Player_o_count = $('#Player_o-score').val();
+let arr = ['', '', '', '', '', '', '', '', ''];
+let player_x_count = $('#Player_x-score').val();
+let player_o_count = $('#Player_o-score').val();
 let tie_count = $('#tie-score').val();
 const showAndSetMove = function (event) {
   event.preventDefault();
   let id = "#" + event.target.id;
-  let id_num = parseInt(id.slice(-1))-1;
+  let id_num = parseInt(id.slice(-1)) - 1;
   if ($(id).text()==="x" || $(id).text()==="o") {
       $(event).off('click');
   }else{
@@ -78,23 +78,23 @@ const showAndSetMove = function (event) {
     let over = false;
     if (checkWin(arr)==="Player_x win!") {
       document.getElementById('Player_x-message').style.display = 'block';
-      $('.game-board').unbind("click");
-      Player_x_count++;
+      $('.game-board').unbind('click');
+      player_x_count++;
       over = true;
     }else if (checkWin(arr)==="Player_o win!") {
       document.getElementById('Player_o-message').style.display = 'block';
-      $('.game-board').unbind("click");
-      Player_o_count++;
+      $('.game-board').unbind('click');
+      player_o_count++;
       over = true;
     }else if (arr.every(notEmpty)) {
       document.getElementById('tie-message').style.display = 'block';
-      $('.game-board').unbind("click");
+      $('.game-board').unbind('click');
       tie_count++;
       $('#tie-score').val(tie_count);
       over = true;
     }
-    $('#Player_x-score').val(Player_x_count);
-    $('#Player_o-score').val(Player_o_count);
+    $('#Player_x-score').val(player_x_count);
+    $('#Player_o-score').val(player_o_count);
     $('#tie-score').val(tie_count);
 
     api.updateGameStatus(id_num, arr[id_num], over)
@@ -112,12 +112,12 @@ const startNew = function (event) {
     .done(ui.createGameSuccess)
     .fail(ui.failure);
   for (let i = 1; i < 10; i++) {
-    $('#column'+i).text("");
+    $('#column' + i).text('');
    }
   document.getElementById('Player_x-message').style.display = 'none';
   document.getElementById('Player_o-message').style.display = 'none';
   document.getElementById('tie-message').style.display = 'none';
-  $('.game-board').bind("click");
+  $('.game-board').bind('click');
   arr = ['','','','','','','','',''];
   $('.game-board').on('click', showAndSetMove);
   document.getElementById('start-game').style.display = 'none';
@@ -130,12 +130,12 @@ const clearBoard = function (event) {
     .done(ui.createGameSuccess)
     .fail(ui.failure);
   for (let i = 1; i < 10; i++) {
-    $('#column'+i).text("");
+    $('#column' + i).text('');
   }
   document.getElementById('Player_x-message').style.display = 'none';
   document.getElementById('Player_o-message').style.display = 'none';
   document.getElementById('tie-message').style.display = 'none';
-  $('.game-board').bind("click");
+  $('.game-board').bind('click');
   arr = ['','','','','','','','',''];
   $('.game-board').on('click', showAndSetMove);
 };
@@ -153,8 +153,8 @@ const addHandlers = () => {
   $('#log-in').on('submit', onLogIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
-  $('#Player_x-score').val(Player_x_count);
-  $('#Player_o-score').val(Player_o_count);
+  $('#Player_x-score').val(player_x_count);
+  $('#Player_o-score').val(player_o_count);
   $('#tie-score').val(tie_count);
   $('.game-board').on('click', showAndSetMove);
   $('#start-game').on('click', startNew);
