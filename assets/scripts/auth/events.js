@@ -46,7 +46,7 @@ const onSignOut = function (event) {
   document.getElementById('get-game').style.display = 'block';
   document.getElementById('start-game').style.display = 'block';
   for (let i = 1; i < 10; i++) {
-    $('#column' + i).text("");
+    $('#column' + i).text('');
   }
   $('#Player_x-score').val('');
   $('#Player_o-score').val('');
@@ -59,7 +59,7 @@ const onChangePassword = function (event) {
   api.changePassword(data)
   .done(ui.success)
   .fail(ui.failure);
-  $('.game-board').unbind("click");
+  $('.game-board').unbind('click');
 };
 
 let arr = ['', '', '', '', '', '', '', '', ''];

@@ -1,11 +1,11 @@
 'use strict';
 
 const app = require('./app.js');
-const small_func = require('./smfunction');
+const smallFunc = require('./smfunction');
 const signInApi = require('./signInApi');
 
 let gameId = 0;
-let checkWin = small_func.check;
+let checkWin = smallFunc.check;
 
 const success = (data) => {
   console.log(data);

@@ -113,5 +113,5 @@ module.exports = {
   changePassword,
   createGame,
   getGameApi,
-  updateGameStatus,
+  updateGameStatus
 };
