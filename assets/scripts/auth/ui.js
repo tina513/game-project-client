@@ -1,13 +1,11 @@
 'use strict';
 
 const app = require('./app.js');
-const small_func = require('./smfunction');
-const api = require('./api');
+const smallFunc = require('./smfunction');
+const signInApi = require('./signInApi');
 
 let gameId = 0;
-let gameCell = [];
-let gameStatus = null;
-let checkWin = small_func.check;
+let checkWin = smallFunc.check;
 
 const success = (data) => {
   console.log(data);
@@ -17,18 +15,17 @@ const failure = (error) => {
   console.error(error);
 };
 
-//need to work on
-const successSignUp = function (data) {
- //let email = $('#sign-in-email').val($('#sign-up-email').val());
- //let ps = $('#sign-in-pw').val($('#sign-up-pw').val());
- api.signIn(data.credentials.email, data.credentials.password)
-   .done(ui.signInSuccess)
-   .fail(ui.failure)
-}
-
 const signInSuccess = function (data) {
   app.user = data.user;
   console.log(app);
+};
+
+const successSignUp = function (data) {
+  let email = data.user.email;
+  let ps = $('#sign-up-pw').val();
+ signInApi.signIn(email, ps)
+   .done(signInSuccess)
+   .fail(failure);
 };
 
 const signOutSuccess = function () {
@@ -81,6 +78,7 @@ const returnGameId = function () {
 module.exports = {
   failure,
   success,
+  successSignUp,
   signInSuccess,
   signOutSuccess,
   createGameSuccess,

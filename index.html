@@ -10,8 +10,8 @@
       <form id="sign-up">
         <fieldset>
           <legend>sign up!</legend>
-          <input type="text" name="credentials[email]" placeholder="email">
-          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="text" id="sign-up-email" name="credentials[email]" placeholder="email">
+          <input type="password" id="sign-up-pw" name="credentials[password]" placeholder="password">
           <input type="password" name="credentials[password_conformation]" placeholder="password conformation">
           <input type="submit" name="submit" value="Sign up!">
         </fieldset>
@@ -20,8 +20,8 @@
       <form id="log-in">
         <fieldset>
           <legend>Log-in!</legend>
-          <input type="text" name="credentials[email]" placeholder="email">
-          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="text" id="sign-in-email" name="credentials[email]" placeholder="email">
+          <input type="password" id="sign-in-pw" name="credentials[password]" placeholder="password">
           <input type="submit" name="submit" value="Log in!">
         </fieldset>
       </form>
@@ -43,7 +43,6 @@
       </form>
 
       <h1>Tic-Tac-Toe</h1>
-
       <div class="container game-board">
         <div>
           <div id="column1"></div>

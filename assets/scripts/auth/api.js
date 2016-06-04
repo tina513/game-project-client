@@ -3,9 +3,8 @@
 const app = require('./app');
 const ui = require('./ui');
 
-
 const signUp = (data) => {
-  return $.ajax ({
+  return $.ajax({
     url: app.host + '/sign-up',
     method: 'POST',
     data: data,
@@ -13,20 +12,20 @@ const signUp = (data) => {
 };
 
 const signIn = (email, password) => {
-  return $.ajax ({
+  return $.ajax({
     url: app.host + '/sign-in',
     method: 'POST',
     data: {
       "credentials": {
           "email": email,
           "password": password,
-        }
-      },
+        },
+     },
   });
 };
 
 const logIn = (data) => {
-  return $.ajax ({
+  return $.ajax({
     url: app.host + '/sign-in',
     method: 'POST',
     data: data,
@@ -34,7 +33,7 @@ const logIn = (data) => {
 };
 
 const signOut = () => {
-  return $.ajax ({
+  return $.ajax({
     url: app.host + '/sign-out/' + app.user.id,
     method: 'DELETE',
     headers: {
@@ -44,8 +43,8 @@ const signOut = () => {
 };
 
 const changePassword = (data) => {
-  return $.ajax ({
-    url: app.host + '/change-password/'+ app.user.id,
+  return $.ajax({
+    url: app.host + '/change-password/' + app.user.id,
     method: 'PATCH',
     data: data,
     headers: {
@@ -55,7 +54,7 @@ const changePassword = (data) => {
 };
 
 const createGame = () => {
-  return $.ajax ({
+  return $.ajax({
     url: app.host + '/games',
     method: 'POST',
     data: {},
@@ -67,13 +66,14 @@ const createGame = () => {
 
 const getGameApi = () => {
   // if (id === '') {
-    return $.ajax ({
+  return $.ajax({
       url: app.host + `/games`,
       method: 'GET',
       headers: {
         Authorization: 'Token token=' + app.user.token,
       },
     });
+
   // }else {
   //   return $.ajax ({
   //     url: app.host + `/games/`+id,
@@ -86,8 +86,8 @@ const getGameApi = () => {
 };
 
 const updateGameStatus = (gameIndex, gameValue, gameStatus) => {
-  return $.ajax ({
-    url: app.host + `/games/`+ ui.returnGameId(),
+  return $.ajax({
+    url: app.host + `/games/` + ui.returnGameId(),
     method: 'PATCH',
     data: {
         "game": {
@@ -95,8 +95,8 @@ const updateGameStatus = (gameIndex, gameValue, gameStatus) => {
             "index": gameIndex,
             "value": gameValue,
           },
-          "over": gameStatus
-        }
+          "over": gameStatus,
+        },
       },
     headers: {
       Authorization: 'Token token=' + app.user.token,
@@ -113,5 +113,5 @@ module.exports = {
   changePassword,
   createGame,
   getGameApi,
-  updateGameStatus,
+  updateGameStatus
 };
