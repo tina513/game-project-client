@@ -41,6 +41,7 @@ const getGameSuccess = function (data) {
   //if (data.games) {
     console.table(data.games);
     let gameArr = data.games;
+    let gameNumber = gameArr.length;
     let x_score_count = 0;
     let o_score_count = 0;
     let tie_score_count = 0;
@@ -56,6 +57,7 @@ const getGameSuccess = function (data) {
     $('#Player_x-score').val(x_score_count);
     $('#Player_o-score').val(o_score_count);
     $('#tie-score').val(tie_score_count);
+    $('#game-num').text(gameNumber);
 //  }
   // else {
   //   console.log(data.game);

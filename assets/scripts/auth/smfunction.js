@@ -1,17 +1,17 @@
 'use strict';
 
-let random = true;
+var random = true;
+
 const setMove = function () {
   let move = "";
   if(random) {
       move = "x";
       random = false;
-      return move;
   }else {
     move = "o";
     random = true;
-    return move;
   }
+  return move;
 };
 
 const check = function (arr) {
@@ -72,8 +72,13 @@ const notEmptyElement = function (element) {
   return element !== '';
 };
 
+const setRandom = function (bool) {
+  random = bool;
+}
+
 module.exports = {
   setMove,
   check,
   notEmptyElement,
+  setRandom,
 };
