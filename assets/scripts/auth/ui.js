@@ -79,9 +79,9 @@ const getGameSuccess = function (data) {
           tie_score_count++;
       }
     }
-    $('#Player_x-score').val(x_score_count);
-    $('#Player_o-score').val(o_score_count);
-    $('#tie-score').val(tie_score_count);
+    $('#Player_x-score').text(x_score_count);
+    $('#Player_o-score').text(o_score_count);
+    $('#tie-score').text(tie_score_count);
     $('#game-num').text(gameNumber);
 //  }
   // else {
