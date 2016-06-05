@@ -8,7 +8,7 @@
     </head>
     <body class="container-fluid">
       <!--Navigation bar on the top and content inside for display basic information  -->
-    <nav class="navbar navbar-fixed-top navbar-dark navbar-inverse" style="background-color: black;">
+    <nav class="navbar navbar-fixed-top navbar-light navbar-inverse" style="background-color: black;">
       <div class="navbar-header">
         <h3 style="color: white; margin-left:20px;">Tic-Tac-Toe</h3>
       </div>
@@ -37,8 +37,11 @@
                   </span>
                   <input class="form-control" type="password" id="sign-up-pw-retype" name="credentials[password_confirmation]" placeholder="Retype password">
                 </div>
+                <div class="retype-error" style="display:none; border:none; text-align: center;">
+                  Passwords don't match!
+                </div>
                 <div class="fail-message" style="display:none; border:none; text-align: center;">
-                  User-name/Password Invalid!
+                  User-name exist!
                 </div>
                 <div class="input-group input-group-md" style="border:none; margin:auto;">
                   <input class="btn btn-danger" type="submit" name="submit" value="Join!">
@@ -106,8 +109,9 @@
     </ul>
    </nav>
 
-      <h1>Tic-Tac-Toe</h1>
-      <div class="container game-board middle">
+    <h1>Tic-Tac-Toe</h1>
+    <div style="border:none;">
+      <div class="container game-board">
         <div>
           <div id="column1"></div>
           <div id="column2"></div>
@@ -124,49 +128,30 @@
           <div id="column9"></div>
         </div>
       </div>
-
-      <div class="middle">
-        <table>
-          <tr>
-            <td><input type="text" size="5" id="Player_x-score"></td>
-            <td>Player_x</td>
-          </tr>
-          <tr>
-            <td><input type="text" size="5" id="Player_o-score"></td>
-            <td>Player_o</td>
-          </tr>
-          <tr>
-            <td><input type="text" size="5" id="tie-score"></td>
-            <td>tie</td>
-          </tr>
-        </table>
+      <div style="border:none;">
+        <ul class="list-group score-board">
+          <li class="list-group-item">
+            Player_X  :<span class="badge" id="Player_x-score"></span>
+          </li>
+          <li class="list-group-item">
+            Player_O  :<span class="badge" id="Player_o-score"></span>
+          </li>
+          <li class="list-group-item">
+            Tie :<span class="badge" id="tie-score"></span>
+          </li>
+        </ul>
       </div>
-
-      <!-- <table>
-        <tr>
-          <td><input type="text" size="5" id="Player_x-score"></td>
-          <td>Player_x</td>
-        </tr>
-        <tr>
-          <td><input type="text" size="5" id="Player_o-score"></td>
-          <td>Player_o</td>
-        </tr>
-        <tr>
-          <td><input type="text" size="5" id="tie-score"></td>
-          <td>tie</td>
-        </tr>
-      </table> -->
-
-
-      <div id="player_x-message" style="display:none">Player_x Win!</div>
-      <div id="player_o-message" style="display:none">Player_o Win!</div>
-      <div id="tie-message" style="display:none">Tie!</div>
+      <div class="messages" style="border:none!important;">
+        <p id="player_x-message" style="display:none!important;">Player_X Win!</p>
+        <p id="player_o-message" style="display:none!important;">Player_O Win!</p>
+        <p id="tie-message" style="display:none!important;"> Oops~ Tie!</p>
+     </div>
+    </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
       <ul class="nav navbar-nav navbar-right">
         <li class="button-on-footer">
           <form action="#"  id="get-game" style="display:block">
-            <!-- <input type="text" name="game[id]" id="game-id" placeholder="type game id"> -->
             <button class="btn btn-primary" type="submit" value="Get Game">
               Game Statistics <span class="badge" id="game-num"></span>
             </button>
@@ -175,11 +160,14 @@
         <li class="button-on-footer">
           <button id="start-game" type="button" class="btn btn-success" style="display:block">Play</button>
         </li>
+        <li class="button-on-footer">
+          <button id="computer-game" type="button" class="btn btn-success" style="display:block">Challenge</button>
+        </li>
         <li class="button-on-footer dropup">
           <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Help<span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li id="game-rule">
-            Tic-tac-toe can only play one time for local, if you enjoy the game, please sign up and enjoy the unlimited pleasure~
+            <li id="game-rule" style="font-family:Times;font-weight: bold;font-size: 16px;margin: 10px;">
+            Tic-tac-toe can only be played by registered user, please sign-up/log-in and enjoy the unlimited pleasure~ Play with friends on "Play", and play with computer on "Challenge"!
            </li>
           </ul>
         </li>
