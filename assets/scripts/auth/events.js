@@ -56,7 +56,7 @@ const onChangePassword = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.changePassword(data)
-  .done(ui.success)
+  .done(ui.successChangePassword)
   .fail(ui.failure);
   $('.game-board').unbind('click');
 };
@@ -112,19 +112,19 @@ const showAndSetMove = function (event) {
 
 const startNew = function (event) {
   event.preventDefault();
+  $('.game-board').bind('click');
   $('#Player_x-score').val('');
   $('#Player_o-score').val('');
   $('#tie-score').val('');
-  api.createGame()
-    .done(ui.createGameSuccess)
-    .fail(ui.failure);
   for (let i = 1; i < 10; i++) {
     $('#column' + i).text('');
    }
   document.getElementById('player_x-message').style.display = 'none';
   document.getElementById('player_o-message').style.display = 'none';
   document.getElementById('tie-message').style.display = 'none';
-  $('.game-board').bind('click');
+  api.createGame()
+    .done(ui.createGameSuccess)
+    .fail(ui.failure);
   arr = ['','','','','','','','',''];
   $('.game-board').on('click', showAndSetMove);
 };
@@ -138,6 +138,7 @@ const getGame = function (event) {
 };
 
 const addHandlers = () => {
+  $('.user-info').hide();
   $('#sign-up').on('submit', onSignUp);
   $('#log-in').on('submit', onLogIn);
   $('#sign-out').on('submit', onSignOut);

@@ -13,7 +13,10 @@
         <h3 style="color: white; margin-left:20px;">Tic-Tac-Toe</h3>
       </div>
       <ul class="nav navbar-nav navbar-right">
-       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+       <li class="user-info">
+         <a class="user-email" href="#"><span class="glyphicon glyphicon-user"></span> </a>
+       </li>
+       <li class="dropdown signUp"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
           <ul class="dropdown-menu">
               <form id="sign-up">
                 <div class="input-group input-group-md" style="border:none;">
@@ -32,7 +35,10 @@
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                   </span>
-                  <input class="form-control" type="password" name="credentials[password_confirmation]" placeholder="Retype password">
+                  <input class="form-control" type="password" id="sign-up-pw-retype" name="credentials[password_confirmation]" placeholder="Retype password">
+                </div>
+                <div class="fail-message" style="display:none; border:none; text-align: center;">
+                  User-name/Password Invalid!
                 </div>
                 <div class="input-group input-group-md" style="border:none; margin:auto;">
                   <input class="btn btn-danger" type="submit" name="submit" value="Join!">
@@ -40,7 +46,7 @@
             </form>
          </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+      <li class="dropdown signIn"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
         <ul class="dropdown-menu">
           <form id="log-in">
             <div class="input-group input-group-md" style="border:none;">
@@ -55,6 +61,9 @@
               </span>
               <input class="form-control" type="password" id="sign-in-pw" name="credentials[password]" placeholder="password">
             </div>
+            <div class="fail-message" style="display:none; border:none; text-align: center;">
+              User-name/Password Invalid!
+            </div>
             <div class="input-group input-group-md" style="border:none; margin:auto;">
               <input class="btn btn-danger" type="submit" name="submit" value="Submit!">
             </div>
@@ -68,13 +77,13 @@
              <span class="input-group-addon">
                <span class="glyphicon glyphicon-lock"></span>
              </span>
-             <input class="form-control" type="password" name="passwords[old]" placeholder="old password">
+             <input class="form-control" type="password" id="old-pw" name="passwords[old]" placeholder="old password">
            </div>
            <div class="input-group input-group-md" style="border:none;">
              <span class="input-group-addon">
                <span class="glyphicon glyphicon-log-in"></span>
              </span>
-             <input class="form-control" type="password" name="passwords[new]" placeholder="new password">
+             <input class="form-control" type="password" id="new-pw" name="passwords[new]" placeholder="new password">
            </div>
            <div class="input-group input-group-md" style="border:none; margin:auto;">
             <button class="btn btn-danger" type="submit" name="submit" value="Change Password">Change Password</button>
@@ -170,7 +179,7 @@
           <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Help<span class="caret"></span></button>
           <ul class="dropdown-menu">
             <li id="game-rule">
-            Tic-tac-toe is a paper-and-pencil game for two players, X and O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game
+            Tic-tac-toe can only play one time for local, if you enjoy the game, please sign up and enjoy the unlimited pleasure~
            </li>
           </ul>
         </li>

@@ -13,24 +13,49 @@ const success = (data) => {
 
 const failure = (error) => {
   console.error(error);
+  $('.fail-message').css("display", "block");
+  $('#sign-up-email').val('');
+  $('#sign-up-pw').val('');
+  $('#sign-up-pw-retype').val('');
+  $('#sign-in-email').val('');
+  $('#sign-in-pw').val('');
 };
 
 const signInSuccess = function (data) {
   app.user = data.user;
   console.log(app);
+  $('#sign-in-email').val('');
+  $('#sign-in-pw').val('');
+  $('.signUp').hide();
+  $('.signIn').hide();
+  $('.user-info').show();
+  $('.user-email').text(data.user.email);
 };
 
 const successSignUp = function (data) {
   let email = data.user.email;
   let ps = $('#sign-up-pw').val();
- signInApi.signIn(email, ps)
-   .done(signInSuccess)
-   .fail(failure);
+  signInApi.signIn(email, ps)
+    .done(signInSuccess)
+    .fail(failure);
+   $('#sign-up-email').val('');
+   $('#sign-up-pw').val('');
+   $('#sign-up-pw-retype').val('');
 };
+
+const successChangePassword = function (data) {
+  console.log(data);
+  $('#old-pw').val('');
+  $('#new-pw').val('');
+}
 
 const signOutSuccess = function () {
   app.user = null;
   console.log(app);
+  $('.user-info').hide();
+  $('.signUp').show();
+  $('.signIn').show();
+  $('.fail-message').css("display", "none");
 };
 
 const createGameSuccess = function (data) {
@@ -82,6 +107,7 @@ module.exports = {
   success,
   successSignUp,
   signInSuccess,
+  successChangePassword,
   signOutSuccess,
   createGameSuccess,
   getGameSuccess,
