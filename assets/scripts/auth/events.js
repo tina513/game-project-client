@@ -37,8 +37,8 @@ const onSignOut = function (event) {
   for (let i = 1; i < 10; i++) {
     $('#column'+i).text('');
   }
-  document.getElementById('Player_x-message').style.display = 'none';
-  document.getElementById('Player_o-message').style.display = 'none';
+  document.getElementById('player_x-message').style.display = 'none';
+  document.getElementById('player_o-message').style.display = 'none';
   document.getElementById('tie-message').style.display = 'none';
   $('.game-board').unbind("click");
   document.getElementById('get-game').style.display = 'block';
@@ -76,7 +76,7 @@ const showAndSetMove = function (event) {
     arr[id_num] = $(id).text();
     let over = false;
     if (checkWin(arr)==="Player_x win!") {
-      document.getElementById('Player_x-message').style.display = 'block';
+      document.getElementById('player_x-message').style.display = 'block';
       $('.game-board').unbind('click');
       player_x_count++;
       over = true;
@@ -85,7 +85,7 @@ const showAndSetMove = function (event) {
       $('#Player_o-score').val(player_o_count);
       $('#tie-score').val(tie_count);
     }else if (checkWin(arr)==="Player_o win!") {
-      document.getElementById('Player_o-message').style.display = 'block';
+      document.getElementById('player_o-message').style.display = 'block';
       $('.game-board').unbind('click');
       player_o_count++;
       over = true;
@@ -121,8 +121,8 @@ const startNew = function (event) {
   for (let i = 1; i < 10; i++) {
     $('#column' + i).text('');
    }
-  document.getElementById('Player_x-message').style.display = 'none';
-  document.getElementById('Player_o-message').style.display = 'none';
+  document.getElementById('player_x-message').style.display = 'none';
+  document.getElementById('player_o-message').style.display = 'none';
   document.getElementById('tie-message').style.display = 'none';
   $('.game-board').bind('click');
   arr = ['','','','','','','','',''];
