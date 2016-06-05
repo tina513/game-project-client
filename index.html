@@ -7,40 +7,95 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <form id="sign-up">
-        <fieldset>
-          <legend>sign up!</legend>
-          <input type="text" id="sign-up-email" name="credentials[email]" placeholder="email">
-          <input type="password" id="sign-up-pw" name="credentials[password]" placeholder="password">
-          <input type="password" name="credentials[password_conformation]" placeholder="password conformation">
-          <input type="submit" name="submit" value="Sign up!">
-        </fieldset>
-      </form>
-
-      <form id="log-in">
-        <fieldset>
-          <legend>Log-in!</legend>
-          <input type="text" id="sign-in-email" name="credentials[email]" placeholder="email">
-          <input type="password" id="sign-in-pw" name="credentials[password]" placeholder="password">
-          <input type="submit" name="submit" value="Log in!">
-        </fieldset>
-      </form>
-
-      <form id="sign-out">
-        <fieldset>
-          <legend>Sign out!</legend>
-          <input type="submit" name="submit" value="Sign out!">
-        </fieldset>
-      </form>
-
-      <form id="change-password">
-        <fieldset>
-          <legend>Change password!</legend>
-          <input type="text" name="passwords[old]" placeholder="old password">
-          <input type="password" name="passwords[new]" placeholder="new password">
-            <input type="submit" name="submit" value="Change Password">
-        </fieldset>
-      </form>
+      <!--Navigation bar on the top and content inside for display basic information  -->
+    <nav class="navbar navbar-fixed-top navbar-dark navbar-inverse" style="background-color: black;">
+      <div class="navbar-header">
+        <h3 style="color: white; margin-left:20px;">Tic-Tac-Toe</h3>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+          <ul class="dropdown-menu">
+              <form id="sign-up">
+                <div class="input-group input-group-md" style="border:none;">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                  </span>
+                  <input class="form-control" type="text" id="sign-up-email" name="credentials[email]" placeholder="email">
+                </div>
+                <div class="input-group input-group-md" style="border:none;">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                  </span>
+                  <input class="form-control" type="password" id="sign-up-pw" name="credentials[password]" placeholder="password">
+                </div>
+                <div class="input-group input-group-md" style="border:none;">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </span>
+                  <input class="form-control" type="password" name="credentials[password_confirmation]" placeholder="Retype password">
+                </div>
+                <div class="input-group input-group-md" style="border:none; margin:auto;">
+                  <input class="btn btn-danger" type="submit" name="submit" value="Join!">
+                </div>
+            </form>
+         </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        <ul class="dropdown-menu">
+          <form id="log-in">
+            <div class="input-group input-group-md" style="border:none;">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-envelope"></span>
+              </span>
+              <input class="form-control" type="text" id="sign-in-email" name="credentials[email]" placeholder="email">
+            </div>
+            <div class="input-group input-group-md" style="border:none;">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-lock"></span>
+              </span>
+              <input class="form-control" type="password" id="sign-in-pw" name="credentials[password]" placeholder="password">
+            </div>
+            <div class="input-group input-group-md" style="border:none; margin:auto;">
+              <input class="btn btn-danger" type="submit" name="submit" value="Submit!">
+            </div>
+          </form>
+       </ul>
+     </li>
+     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-cog"></span> Change Password</a>
+       <ul class="dropdown-menu">
+         <form id="change-password">
+           <div class="input-group input-group-md" style="border:none;">
+             <span class="input-group-addon">
+               <span class="glyphicon glyphicon-lock"></span>
+             </span>
+             <input class="form-control" type="password" name="passwords[old]" placeholder="old password">
+           </div>
+           <div class="input-group input-group-md" style="border:none;">
+             <span class="input-group-addon">
+               <span class="glyphicon glyphicon-log-in"></span>
+             </span>
+             <input class="form-control" type="password" name="passwords[new]" placeholder="new password">
+           </div>
+           <div class="input-group input-group-md" style="border:none; margin:auto;">
+            <button class="btn btn-danger" type="submit" name="submit" value="Change Password">Change Password</button>
+          </div>
+         </form>
+       </ul>
+     </li>
+     <li class="dropdown" style="margin-right: 20px"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Out </a>
+       <ul class="dropdown-menu">
+         <form id="sign-out">
+           <div class="input-group input-group-md" style="border:none; margin:auto;">
+             <p> Do you really want to leave?</p>
+           </div>
+           <div class="input-group input-group-md" style="border:none; margin:auto;">
+               <button type="submit" name="submit" value="Yes!" class="btn btn-danger">Yes!!!</button>
+           </div>
+         </form>
+       </ul>
+     </li>
+    </ul>
+   </nav>
 
       <h1>Tic-Tac-Toe</h1>
       <div class="container game-board">

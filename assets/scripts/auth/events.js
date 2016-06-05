@@ -16,9 +16,6 @@ const onSignUp = function (event) {
   api.signUp(data)
     .done(ui.successSignUp)
     .fail(ui.failure);
-  // api.signIn(data.credentials.email, data.credentials.password)
-  //   .done(ui.signInSuccess)
-  //   .fail(ui.failure)
  $('.game-board').unbind('click');
 };
 
