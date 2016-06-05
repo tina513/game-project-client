@@ -14,33 +14,52 @@ div {
 .container {
   float: left;
   width: 50%;
-  margin: auto 10%;
+  margin:2%;
+}
+
+.score-board {
+  float:left;
+  margin: 15%;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.messages {
+  margin: 12%;
+  font-size: 30px;
+  font-family: cursive;
+  float:left;
+  border: none;
 }
 
 .game-board {
-  position: relative;
   color: #fff;
   margin-top: 50px;
   font-family: "Lucida Console";
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
   font-size: 12vw;
   text-align: center;
-  display: inline-block;
-  float: left;
 }
 
-.middle {
-  position: relative;
-  float: left;
-  display: inline-block;
-  bottom: 50%;
-  right: 5%;
-}
+// .middle {
+//   //position: absolute;;
+//   float: left;
+// //  display: inline-block;
+// //  bottom: 50%;
+// //  right: 5%;
+//   width: 100px;
+//   height: 100px;
+//   top: 30%;
+//   left: 80%;
+// }
 
 
 @media (max-width: 768px) {
     .game-board {
         margin-top: 200px;
+    }
+    .messages {
+      margin-top: 200px;
     }
   }
 
@@ -58,29 +77,7 @@ div {
  }
 ​
 
-table {
-  margin-left: 40px;
-  margin-top: 40px;
-}
 
-#player_x-message {
-  clear: both;
-}
-
-#player_o-message {
-  clear: both;
-}
-
-#tie-message {
-  clear: both;
-}
-
-#game-rule {
-  font-family: Arial;
-  font-weight: bold;
-  font-size: 16px;
-  margin: 10px;
-}
 
 .navbar-fixed-bottom {
   height: 70px;
