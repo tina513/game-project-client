@@ -116,16 +116,24 @@
         </div>
       </div>
 
-      <!-- <form action="#"  id="get-game" style="display:block">
-        <!- <input type="text" name="game[id]" id="game-id" placeholder="type game id"> -->
-        <!-- <button class="btn btn-primary" type="submit" value="Get Game">
-          Game Statistics <span class="badge" id="game-num"></span>
-        </button>
-      </form> -->
+      <div class="middle">
+        <table>
+          <tr>
+            <td><input type="text" size="5" id="Player_x-score"></td>
+            <td>Player_x</td>
+          </tr>
+          <tr>
+            <td><input type="text" size="5" id="Player_o-score"></td>
+            <td>Player_o</td>
+          </tr>
+          <tr>
+            <td><input type="text" size="5" id="tie-score"></td>
+            <td>tie</td>
+          </tr>
+        </table>
+      </div>
 
-      <!-- <button id="start-game" type="button" class="btn btn-success" style="display:block">Play</button> -->
-
-      <table id="player-score">
+      <!-- <table>
         <tr>
           <td><input type="text" size="5" id="Player_x-score"></td>
           <td>Player_x</td>
@@ -138,39 +146,36 @@
           <td><input type="text" size="5" id="tie-score"></td>
           <td>tie</td>
         </tr>
-      </table>
+      </table> -->
 
-      <div id="Player_x-message" style="display:none">Player_x Win!</div>
-      <div id="Player_o-message" style="display:none">Player_o Win!</div>
+
+      <div id="player_x-message" style="display:none">Player_x Win!</div>
+      <div id="player_o-message" style="display:none">Player_o Win!</div>
       <div id="tie-message" style="display:none">Tie!</div>
-
-      <!-- <button class="btn btn-info" data-toggle="collapse" data-target="#viewdetails">Help</button>
-      <p class="collapse" id="viewdetails">
-        Tic-tac-toe is a paper-and-pencil game for two players, X and O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game
-      </p> -->
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
       <ul class="nav navbar-nav navbar-right">
         <li class="button-on-footer">
           <form action="#"  id="get-game" style="display:block">
             <!-- <input type="text" name="game[id]" id="game-id" placeholder="type game id"> -->
-            <button class="btn btn-primary btn-lg" type="submit" value="Get Game">
+            <button class="btn btn-primary" type="submit" value="Get Game">
               Game Statistics <span class="badge" id="game-num"></span>
             </button>
           </form>
         </li>
         <li class="button-on-footer">
-          <button id="start-game" type="button" class="btn btn-success btn-lg" style="display:block">Play</button>
+          <button id="start-game" type="button" class="btn btn-success" style="display:block">Play</button>
         </li>
         <li class="button-on-footer dropup">
-          <button class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Help<span class="caret"></span></button>
+          <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Help<span class="caret"></span></button>
           <ul class="dropdown-menu">
             <li id="game-rule">
             Tic-tac-toe is a paper-and-pencil game for two players, X and O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game
            </li>
           </ul>
         </li>
-      </nav>
+      </ul>
+    </nav>
 
     </body>
 </html>
