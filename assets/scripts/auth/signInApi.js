@@ -7,14 +7,13 @@ const signIn = (email, password) => {
     url: app.host + '/sign-in',
     method: 'POST',
     data: {
-      "credentials": {
-          "email": email,
-          "password": password,
-        }
-      },
+      credentials: {
+          email: email,
+          password: password,
+        },
+    },
   });
 };
-
 
 module.exports = {
   signIn,
