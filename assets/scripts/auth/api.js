@@ -16,11 +16,11 @@ const signIn = (email, password) => {
     url: app.host + '/sign-in',
     method: 'POST',
     data: {
-      "credentials": {
-          "email": email,
-          "password": password,
+      credentials: {
+          email: email,
+          password: password,
         },
-     },
+    },
   });
 };
 
@@ -65,7 +65,6 @@ const createGame = () => {
 };
 
 const getGameApi = () => {
-  // if (id === '') {
   return $.ajax({
       url: app.host + `/games`,
       method: 'GET',
@@ -73,16 +72,6 @@ const getGameApi = () => {
         Authorization: 'Token token=' + app.user.token,
       },
     });
-
-  // }else {
-  //   return $.ajax ({
-  //     url: app.host + `/games/`+id,
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization: 'Token token=' + app.user.token,
-  //     },
-  //   });
-  // }
 };
 
 const updateGameStatus = (gameIndex, gameValue, gameStatus) => {
@@ -90,12 +79,12 @@ const updateGameStatus = (gameIndex, gameValue, gameStatus) => {
     url: app.host + `/games/` + ui.returnGameId(),
     method: 'PATCH',
     data: {
-        "game": {
-          "cell": {
-            "index": gameIndex,
-            "value": gameValue,
+        game: {
+          cell: {
+            index: gameIndex,
+            value: gameValue,
           },
-          "over": gameStatus,
+          over: gameStatus,
         },
       },
     headers: {
@@ -103,7 +92,6 @@ const updateGameStatus = (gameIndex, gameValue, gameStatus) => {
     },
   });
 };
-
 
 module.exports = {
   signUp,
@@ -113,5 +101,5 @@ module.exports = {
   changePassword,
   createGame,
   getGameApi,
-  updateGameStatus
+  updateGameStatus,
 };
